@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const CardInfo = ({ datas }) => {
-  console.log(datas)
+  // console.log(datas)
   return (
     <section className="border-2" key={datas.id}>
       <div className="h-[600px] md:h-[620px] flex flex-col md:flex-col md:gap-3 shadow-xl mx-auto relative">
