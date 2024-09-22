@@ -1,8 +1,16 @@
-# React + Vite
+# Movie Application
+A dynamic movie and TV show discovery app that fetches data from The Movie Database (TMDb) API, allowing users to explore information about popular movies, TV shows, and trailers.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
+- Features
+- Technologies Used
 
-Currently, two official plugins are available:
+### Features
+- Display detailed information about movies and TV shows.
+- Responsive design
+- Fetch and display YouTube trailers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Technologies Used
+- React, Tailwind CSS
+- API: TMDb API
+- Video Player: React-YouTube for embedding trailers
