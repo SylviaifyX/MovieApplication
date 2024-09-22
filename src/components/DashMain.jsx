@@ -55,7 +55,8 @@ const DashMain = () => {
         <div className="h-dvh overflow-y-scroll">
             <div className="w-full px-4 md:pl-6">
                 <div className="md:pt-4">
-                    <YouTube videoId={videoPlayerId} opts={videoOptions} className="w-full aspect-[12/7] md:aspect-[2/1] md:rounded-2xl overflow-hidden"/>
+                    <YouTube videoId={videoPlayerId} opts={videoOptions} 
+                    className="w-full aspect-[12/7] md:aspect-[2/1] md:rounded-2xl overflow-hidden"/>
                     {/* <img
                         src={`https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`}
                         alt="poster-image"

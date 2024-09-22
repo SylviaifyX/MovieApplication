@@ -7,12 +7,17 @@ import image2 from "../assets/MovieProjector.png";
 import image3 from "../assets/TVShow.png";
 import image4 from "../assets/Calendar.png";
 import logIcon from "../assets/Logout.png"
+import { useState } from "react";
 
 const SideBar = () => {
+    const [menuOpen, setMenuOpen] = useState(false)
+    const open = () => {
+        setMenuOpen(!menuOpen)
+    }
 
     return (
-        <div className="md:h-dvh overflow-y-scroll no-scrollbar lg:w-72">
-            <nav>
+        <div className="md:h-dvh overflow-y-scroll no-scrollbar lg:w-72 p-2 md:p-0">
+            <nav className="">
                 <div className="py-4">
                     <div className="px-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -22,14 +27,18 @@ const SideBar = () => {
                             <p className="font-bold text-black text-xl font-DM Sans">MovieBox</p>
 
                         </div>
+                        <button className="md:hidden" onClick={open}>
 
-                        <button className="md:hidden">
-                            <img src={menuIcon} alt="" />
+                            <img src={menuIcon} alt="menu-icon" />
                         </button>
                     </div>
                 </div>
             </nav>
-            <div className="h-0 overflow-hidden md:w-60 md:h-auto lg:w-72 ">
+
+            <div className={`transition-all duration-300 ease-in-out ${menuOpen ?
+                "max-h-screen opacity-100" : "max-h-0 opacity-0"} 
+                 overflow-hidden md:w-60 lg:w-72 link-section md:max-h-full md:opacity-100`}>
+
                 <Link to="/">
                     <div className="flex items-center gap-2 py-4 md:pl-12 cursor-pointer">
 
