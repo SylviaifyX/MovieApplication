@@ -11,6 +11,33 @@ const MediaInfo = () => {
     const { id, mediaType } = useParams();
     const [movieDetails, setMovieDetails] = useState({});
     const API_URL = import.meta.env.VITE_API_KEY;
+
+    const [cast, setCast] = useState([])
+    const [crew, setCrew] = useState([])
+
+    function filterRole(crew, role) {
+        if (!crew) return []
+        return crew.filter((person) => person.job.toLowerCase() === role)
+            .map((data) => data.name)
+    }
+
+    useEffect(() => {
+        const fetchCastInfo = async () => {
+            try {
+                const res = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${API_URL}`)
+                const { crew, cast } = res.data
+                setCast(cast || [])
+                setCrew(crew || [])
+                console.log(cast, crew)
+            } catch (error) {
+                console.log("error fetching data", error)
+            }
+
+        };
+        fetchCastInfo()
+
+    }, [id, mediaType])
+
     useEffect(() => {
         const fetchMovieInfo = async () => {
             if (id) {
@@ -42,18 +69,18 @@ const MediaInfo = () => {
                     </p>
                 </div>
                 <p className="font-medium leading-7">{movieDetails.overview}</p>
-                <div className="pt-3">
-                    <div className="flex gap-2 mt-3 items-center">
+                <div className="pt-3 flex flex-col gap-2">
+                    <div className="flex gap-2 mt-3 mb-2 items-center">
                         <p className="text-[#333]">Director:</p>
-                        <p className="text-[#BE123C]">Joseph Kosinski</p>
+                        <p className="text-[#BE123C]">{filterRole(crew, "director").join(" , ")}</p>
                     </div>
                     <div className="flex gap-2 mt-3 items-center">
                         <p className="text-[#333]">Writer:</p>
-                        <p className="text-[#BE123C]">Joseph Kosinski</p>
+                        <p className="text-[#BE123C]">{filterRole(crew, "writer").join(" , ")}</p>
                     </div>
                     <div className="flex gap-2 mt-3 items-center">
                         <p className="text-[#333]">Stars:</p>
-                        <p className="text-[#BE123C]">Keanu Reauvs</p>
+                        <p className="text-[#BE123C]">{cast.map((person) => person.name).join(" , ") || ""}</p>
                     </div>
                 </div>
                 <div className="flex flex-wrap items-center justify-between rounded-md shadow mt-6">

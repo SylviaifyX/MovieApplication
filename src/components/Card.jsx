@@ -82,13 +82,13 @@ const CardInfo = ({ datas }) => {
         </div>
         <div className="p-2 flex flex-col gap-2">
           <p
-            className=" h-[16px] font-bold text-xs text-[#9CA3AF] "
+            className=" h-[16px] font-bold text-xs md:text-[15px] text-[#9CA3AF] "
             data-testid="movie-release-date"
           >
             {datas.release_date || datas.first_air_date}
           </p>
           <h1
-            className="w-full  font-bold text-[16px] text-[#111827] flex-wrap"
+            className="w-full  font-bold text-[16px] md:text-[18px] text-[#111827] flex-wrap"
             data-testid="movie-title"
           >
             {datas.title || datas.name}
@@ -107,7 +107,7 @@ const CardInfo = ({ datas }) => {
           </div>
           <div className="">
             <p
-              className="font-bold text-xs text-[#9CA3AF]"
+              className="font-bold text-base text-[#9CA3AF]"
               data-testid="movie-type"
             >
               {datas.media_type}
