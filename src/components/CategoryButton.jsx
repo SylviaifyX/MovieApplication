@@ -5,7 +5,7 @@ import CardInfo from "./Card";
 import axios from "axios";
 import { ColorRing } from "react-loader-spinner"
 
-const Tabs = () => {
+const Tabs = ({value}) => {
   const [loader, setLoader] = useState(false)
   const [clickButton, setClickButton] = useState("all");
   const [data, setData] = useState([]);
@@ -14,7 +14,7 @@ const Tabs = () => {
 
   useEffect(() => {
     getData();
-  }, [clickButton]);
+  }, [clickButton, value]);
 
   const URL = {
     all: `https://api.themoviedb.org/3/trending/all/day?api_key=${API_URL}`,
@@ -22,9 +22,12 @@ const Tabs = () => {
     movie: `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_URL}`,
   };
   const getData = async () => {
-    const url = URL[clickButton];
+    let url = URL[clickButton];
     try {
       setLoader(true)
+      if (value.trim()){
+        url =`https://api.themoviedb.org/3/search/multi?api_key=${API_URL}&language=en-US&query=${value}&include_adult=false`
+      }
       const response = await axios.get(url);
       setData(response.data.results.slice(0, 20));
     } catch (error) {
@@ -40,7 +43,7 @@ const Tabs = () => {
           <ColorRing visible={true}
             height="80"
             width="80"
-            className="bg-red-500 mx-auto "
+            className="mx-auto "
             ariaLabel="color-ring-loading"
             wrapperStyle={{}}
             wrapperClass="color-ring-wrapper"
