@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/home';
 import Dashboard from './pages/Dashboard';
+import Upcoming from './pages/Upcoming';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/:mediaType/:id",
     element:<Dashboard/>
+  },
+  {
+    path: "/upcoming",
+    element:<Upcoming/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

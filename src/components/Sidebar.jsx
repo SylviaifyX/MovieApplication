@@ -20,13 +20,15 @@ const SideBar = () => {
             <nav className="">
                 <div className="py-4">
                     <div className="px-4 flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <Link to="/">
-                                <img src={movieIcon} alt="" className="w-12 h-12" />
-                            </Link>
-                            <p className="font-bold text-black text-xl font-DM Sans">MovieBox</p>
+                        <Link to="/">
+                            <div className="flex items-center gap-3">
 
-                        </div>
+                                <img src={movieIcon} alt="" className="w-12 h-12" />
+
+                                <p className="font-bold text-black text-xl font-DM Sans">MovieBox</p>
+
+                            </div>
+                        </Link>
                         <button className="md:hidden" onClick={open}>
 
                             <img src={menuIcon} alt="menu-icon" />
@@ -59,11 +61,11 @@ const SideBar = () => {
                     </Link>
                     <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Tv Series</p>
                 </div>
-                <div className="flex items-center gap-2 py-4 md:pl-12 cursor-pointer">
-                    <Link to="#">
+                <div>
+                    <Link to="/upcoming" className="flex items-center gap-2 py-4 md:pl-12 cursor-pointer">
                         <img src={image4} alt="upcoming-icon" />
+                        <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Upcoming</p>
                     </Link>
-                    <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Upcoming</p>
                 </div>
                 <div className="bg-gree-500 w-[170px] rounded-2xl border-[#BE123C] bg-[#F8E7EB] p-4 mx-4 sm:ml-12 mt-4">
                     <p className="font-semibold leading-5">Play movie quizes and earn free tickets</p>

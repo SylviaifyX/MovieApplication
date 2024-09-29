@@ -43,9 +43,9 @@ const MediaInfo = () => {
             if (id) {
                 try {
                     const url =
-                        mediaType === "movie"
-                            ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
-                            : `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
+                        mediaType === "movie" 
+                        ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
+                        : `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
 
                     const response = await axios.get(url);
                     setMovieDetails(response.data);
@@ -57,7 +57,6 @@ const MediaInfo = () => {
         };
         fetchMovieInfo();
     }, [id, mediaType, API_URL]);
-
     return (
         <div className="grid py-4 lg:grid-cols-2 gap-x-6">
             <div className="font-Poppins">

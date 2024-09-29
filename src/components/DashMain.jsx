@@ -52,7 +52,7 @@ const DashMain = () => {
     };
 
     return (
-        <div className="h-dvh overflow-y-scroll">
+        <div className="h-dvh overflow-y-scroll ">
             <div className="w-full px-4 md:pl-6">
                 <div className="md:pt-4">
                     <YouTube videoId={videoPlayerId} opts={videoOptions} 
