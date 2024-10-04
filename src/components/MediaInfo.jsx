@@ -44,7 +44,7 @@ const MediaInfo = () => {
       if (id) {
         try {
           const url =
-            mediaType === "movie"
+            mediaType === "upcoming"
               ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
               : mediaType === "upcoming"
               ? `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
@@ -53,7 +53,7 @@ const MediaInfo = () => {
               : null;
           const response = await axios.get(url);
           setMovieDetails(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         } catch (error) {
           console.log("error fetching", error);
         }
@@ -72,6 +72,8 @@ const MediaInfo = () => {
             {new Date(
               mediaType === "movie"
                 ? movieDetails.release_date
+                :mediaType === "upcoming"
+                ?movieDetails.release_date
                 : movieDetails.first_air_date
             ).toUTCString()}
           </p>
@@ -82,7 +84,7 @@ const MediaInfo = () => {
             <span className="text-red-500">Mins</span>
           </p>
         </div>
-        <p className="font-medium leading-7">{movieDetails.overview}</p>
+        <p className="font-medium leading-7">{mediaType === "movie" ? movieDetails.overview : movieDetails.overview}</p>
         <div className="pt-3 flex flex-col gap-2">
           <div className="flex gap-2 mt-3 mb-2 items-center">
             <p className="text-[#333]">Director:</p>
