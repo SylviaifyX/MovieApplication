@@ -44,7 +44,7 @@ const MediaInfo = () => {
       if (id) {
         try {
           const url =
-            mediaType === "upcoming"
+            mediaType === "movie"
               ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
               : mediaType === "upcoming"
               ? `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`

@@ -18,12 +18,12 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
   
   return (
     <nav className="relative bg-[#0000006c] py-4">
-      <Holder className="flex justify-between">
+      <Holder className="flex justify-between bg-red-500 p-2">
         <Link to="/">
-          <div className="flex items-center flex-nowrap gap-4">
-            <img src={imgg} className="w-12 h-12" alt="logo" />
+          <div className="flex items-center flex-nowrap gap-2 md:gap-4">
+            <img src={imgg} className="md:w-12 md:h-12 w-9 h-9" alt="logo" />
             <p
-              className={`font-DM Sans text-xl font-bold ${dark ? "text-black" : "text-white"
+              className={`font-DM Sans text-sm md:text-xl font-bold ${dark ? "text-black" : "text-white"
                 }`}
             >
               MovieBox
@@ -31,7 +31,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
           </div>
         </Link>
 
-        <form className="hidden relative min-w-72 md:block">
+        <form className="  relative md:min-w-72 block">
           <input
             type="text"
             placeholder="What do you want to watch?"
@@ -47,7 +47,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
         </form>
 
         <div className="flex items-center gap-4">
-          <button className="text-white font-bold">SignIn</button>
+          <button className="text-white font-bold text-sm">SignIn</button>
           <button>
             <img src={img} alt="logo" />
           </button>
