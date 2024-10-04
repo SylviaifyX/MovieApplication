@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Header = ({value, valueChangerFn}) => {
   // console.log(value)
   const [banner, setBanner] = useState([])
-  console.log(banner)
+  // console.log(banner)
   const bgImage = `https://image.tmdb.org/t/p/original/${banner.backdrop_path}`
   const API_URL = import.meta.env.VITE_API_KEY      
 

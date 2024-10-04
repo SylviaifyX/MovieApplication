@@ -9,6 +9,7 @@ import Home from './pages/home';
 import Dashboard from './pages/Dashboard';
 import Upcoming from './pages/Upcoming';
 import Movie from './pages/Movie';
+import Tv from './pages/Tv';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/movie",
     element:<Movie/>
+  },
+  {
+    path: "/tv",
+    element:<Tv/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
