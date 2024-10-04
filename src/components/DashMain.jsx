@@ -19,9 +19,9 @@ const DashMain = () => {
             if (id) {
                 try {
                     const url =
-                        mediaType === "movie"
-                            ? `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_URL}`
-                            : `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_URL}`
+                        mediaType === "tv"
+                            ?  `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_URL}`
+                            :`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_URL}`
 
                     const response = await axios.get(url); 
                     const videos = response.data.results;

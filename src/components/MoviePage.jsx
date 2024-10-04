@@ -2,36 +2,35 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-// 592831
-const UpcomingCard = () => {
-   const [upComingMovie, setUpComingMovie] = useState([]);
+
+const MovieCard = () => {
+   const [Movie, setMovie] = useState([]);
    const API_URL = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
-        const fetchUpcomingMovies = async () => {
+        const fetchMovies = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
+                    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_URL}`
                 );
-                setUpComingMovie(response.data.results);
+                setMovie(response.data.results);
                 console.log(response.data.results)
             } catch (error) {
                 console.log("couldn't fetch upcoming movie", error);
             }
         };
-        fetchUpcomingMovies();
+        fetchMovies();
     }, [API_URL]);
 
     return (
         <section className="md:max-w-[1240px] grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 sm-p-3 
               md:p-3 md:mx-auto 
               md:grid-cols-2 lg:grid-cols-4 
-              gap-[15px] lg:h-dvh lg:overflow-y-scroll">
-            {upComingMovie.map((movie) => (
-                // console.log(movie)
+              gap-[15px] h-dvh overflow-y-scroll">
+            {Movie.map((movie) => (
                 <div className="flex flex-col md:flex-col md:gap-3 shadow-xl mx-auto relative" key={movie.id} >
                     <div>
-                        <Link to={`/upcoming/${movie.id}`}>
+                        <Link to={`/${movie.media_type}/${movie.id}`}>
                             <img
                                 datatestid="movie-poster"
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -136,10 +135,9 @@ const UpcomingCard = () => {
                         </div>
                     </div>
                 </div>
-                
             ))}
         </section>
     );
 };
 
-export default UpcomingCard;
+export default MovieCard;

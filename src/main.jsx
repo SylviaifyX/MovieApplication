@@ -8,6 +8,7 @@ import {
 import Home from './pages/home';
 import Dashboard from './pages/Dashboard';
 import Upcoming from './pages/Upcoming';
+import Movie from './pages/Movie';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/upcoming",
     element:<Upcoming/>
+  },
+  {
+    path: "/movie",
+    element:<Movie/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

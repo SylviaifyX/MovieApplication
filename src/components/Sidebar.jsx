@@ -49,12 +49,12 @@ const SideBar = () => {
                         <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Home</p>
                     </div>
                 </Link>
-                <div className="flex items-center gap-2 py-4 bg-pink-200 md:pl-12 cursor-pointer">
-                    <Link to="#">
+                <Link to="/movie">
+                    <div className="flex items-center gap-2 py-4 bg-pink-200 md:pl-12 cursor-pointer">
                         <img src={image2} alt="movie-icon" />
-                    </Link>
-                    <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Movies</p>
-                </div>
+                        <p className="w-[61px] text-[#666] font-Poppins text-nowrap">Movies</p>
+                    </div>
+                </Link>
                 <div className="flex items-center gap-2 py-4 md:pl-12 cursor-pointer">
                     <Link to="#">
                         <img src={image3} alt="tvseries-icon" />
