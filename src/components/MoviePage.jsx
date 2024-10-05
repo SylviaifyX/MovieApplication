@@ -28,7 +28,7 @@ const MovieCard = () => {
               md:grid-cols-2 lg:grid-cols-4 
               gap-[15px] h-dvh overflow-y-scroll">
             {Movie.map((movie) => (
-                <div className="flex flex-col md:flex-col md:gap-3 shadow-xl mx-auto relative" key={movie.id} >
+                <div className="flex flex-col md:flex-col md:gap-3 w-full shadow-xl mx-auto relative" key={movie.id} >
                     <div>
                         <Link to={`/${movie.media_type}/${movie.id}`}>
                             <img

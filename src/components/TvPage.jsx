@@ -22,13 +22,13 @@ const TVPage = () =>{
     },[API_URL])
 
     return(
-        <section className="md:max-w-[1240px] p4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 sm-p-3 
+        <section className="md:max-w-[1240px] p-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 sm-p-3 
         md:p-3 md:mx-auto 
         md:grid-cols-2 lg:grid-cols-4 
         gap-[15px] lg:h-dvh lg:overflow-y-scroll">
       {tvMovie.map((movie) => (
           // console.log(movie)
-          <div className="flex flex-col md:flex-col md:gap-3 shadow-xl mx-auto relative" key={movie.id} >
+          <div className="flex flex-col md:flex-col md:gap-3 shadow-xl w-full mx-auto relative" key={movie.id} >
               <div>
                   <Link to={`/tv/${movie.id}`}>
                       <img
