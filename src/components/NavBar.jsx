@@ -21,7 +21,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
       <Holder className="flex justify-between p-2">
         <Link to="/">
           <div className="flex items-center flex-nowrap gap-2 md:gap-4">
-            <img src={imgg} className="md:w-12 md:h-12 w-9 h-9" alt="logo" />
+            <img src={imgg} className="w-12 h-12 " alt="logo" />
             <p
               className={`font-DM Sans text-sm md:text-xl font-bold ${dark ? "text-black" : "text-white"
                 }`}
