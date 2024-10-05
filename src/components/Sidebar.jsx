@@ -39,7 +39,7 @@ const SideBar = () => {
 
             <div className={`transition-all duration-300 ease-in-out ${menuOpen ?
                 "max-h-screen opacity-100" : "max-h-0 opacity-0"} 
-                 overflow-hidden md:w-60 lg:w-72 link-section md:max-h-full md:opacity-100`}>
+                 overflow-hidden md:w-60 lg:w-72 link-section md:max-h-full md:opacity-100  p-4 md:p-0`}>
 
                 <Link to="/">
                     <div className="flex items-center gap-2 py-4 md:pl-12 cursor-pointer">

@@ -18,7 +18,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
   
   return (
     <nav className="relative bg-[#0000006c] py-4">
-      <Holder className="flex justify-between bg-red-500 p-2">
+      <Holder className="flex justify-between p-2">
         <Link to="/">
           <div className="flex items-center flex-nowrap gap-2 md:gap-4">
             <img src={imgg} className="md:w-12 md:h-12 w-9 h-9" alt="logo" />
@@ -31,7 +31,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
           </div>
         </Link>
 
-        <form className="  relative md:min-w-72 block">
+        <form className=" hidden relative md:min-w-72 md:block">
           <input
             type="text"
             placeholder="What do you want to watch?"
