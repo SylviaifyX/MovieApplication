@@ -72,14 +72,13 @@ const MediaInfo = () => {
             {new Date(
               mediaType === "movie"
                 ? movieDetails.release_date
-                :mediaType === "upcoming"
-                ?movieDetails.release_date
+                : mediaType === "upcoming"
+                ? movieDetails.release_date
                 : movieDetails.first_air_date
             ).toUTCString()}
           </p>
           <p>
-            {mediaType === "movie"
-              ? movieDetails.runtime
+            {mediaType === "movie" ? movieDetails.runtime
               : movieDetails.episode_run_time?.[0]}
             <span className="text-red-500">Mins</span>
           </p>
