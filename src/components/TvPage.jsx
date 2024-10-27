@@ -13,7 +13,7 @@ const TVPage = () =>{
             try{
                 const response = await axios.get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_URL}`)
                 setTvMovie(response.data.results)
-                // console.log(response.data.results)
+                console.log(response.data.results)
             }catch(error){
                 console.log("tv movie not fetching", error)
             }

@@ -14,7 +14,7 @@ const UpcomingCard = () => {
                     `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
                 );
                 setUpComingMovie(response.data.results);
-                console.log(response.data.results)
+                // console.log(response.data.results)
             } catch (error) {
                 console.log("couldn't fetch upcoming movie", error);
             }

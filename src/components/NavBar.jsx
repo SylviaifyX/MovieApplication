@@ -24,7 +24,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
           <div className="flex items-center flex-nowrap gap-2 md:gap-4">
             <img src={imgg} className="w-12 h-12 " alt="logo" />
             <p
-              className={`font-DM Sans text-sm md:text-xl font-bold ${dark ? "text-black" : "text-white"
+              className={`font-DM Sans text-sm md:text-2xl font-bold ${dark ? "text-black" : "text-white"
                 }`}
             >
               MovieBox
@@ -32,7 +32,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
           </div>
         </Link>
 
-        <form className=" w-[45%] h-9 relative md:min-w-72 md:block">
+        <form className=" w-1/2 h-8  relative md:min-w-72 md:block md:w-auto md:h-14 ">
           <input
             type="text"
             placeholder="What do you want to watch?"
@@ -48,7 +48,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
         </form>
 
         <div className="flex items-center gap-4">
-          <button className="hidden md:block text-white font-bold text-sm">SignIn</button>
+          <button className="hidden md:block text-white font-bold text-sm md:text-2xl">SignIn</button>
           <button>
             <img src={img} alt="logo" />
           </button>
