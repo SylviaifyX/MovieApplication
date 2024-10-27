@@ -25,8 +25,9 @@ const MediaInfo = () => {
     const fetchCastInfo = async () => {
       try {
         const res = await axios.get(
-          `https://api.themoviedb.org/3/${mediaType === 'upcoming' 
-            ? 'movie': mediaType}/${id}/credits?api_key=${API_URL}`
+          `https://api.themoviedb.org/3/${
+            mediaType === "upcoming" ? "movie" : mediaType
+          }/${id}/credits?api_key=${API_URL}`
         );
         const { crew, cast } = res.data;
         setCast(cast || []);
@@ -44,13 +45,14 @@ const MediaInfo = () => {
       if (id) {
         try {
           const url =
-            mediaType === "movie"
-              ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
-              : mediaType === "upcoming"
-              ? `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
-              : mediaType === "tv"
-              ? `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
-              : null;
+          mediaType === "movie"
+            ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
+            : mediaType === "upcoming"
+            ? `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
+            : mediaType === "tv"
+            ? `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
+            : null;
+
           const response = await axios.get(url);
           setMovieDetails(response.data);
           // console.log(response.data);
@@ -69,21 +71,22 @@ const MediaInfo = () => {
             {mediaType === "movie" ? movieDetails.title : movieDetails.name}
           </p>
           <p>
-            {new Date(
-              mediaType === "movie"
-                ? movieDetails.release_date
-                : mediaType === "upcoming"
-                ? movieDetails.release_date
-                : movieDetails.first_air_date
-            ).toUTCString()}
+            {movieDetails.release_date || movieDetails.first_air_date
+              ? new Date(
+                  mediaType === "movie"
+                    ? movieDetails.release_date
+                    : movieDetails.first_air_date
+                ).toUTCString()
+              : "Release date not available"}
           </p>
           <p>
-            {mediaType === "movie" ? movieDetails.runtime
+            {mediaType === "movie"
+              ? movieDetails.runtime
               : movieDetails.episode_run_time?.[0]}
             <span className="text-red-500">Mins</span>
           </p>
         </div>
-        <p className="font-medium leading-7">{mediaType === "movie" ? movieDetails.overview : movieDetails.overview}</p>
+        <p className="font-medium leading-7">{movieDetails.overview || "No overview available."}</p>
         <div className="pt-3 flex flex-col gap-2">
           <div className="flex gap-2 mt-3 mb-2 items-center">
             <p className="text-[#333]">Director:</p>

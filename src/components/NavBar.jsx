@@ -4,6 +4,7 @@ import imggg from "../assets/Search.png";
 import img from "../assets/Menu.png";
 import { Link } from "react-router-dom"
 import { useState } from "react";
+
 const Nav = ({ dark, searchValue, handlerFn}) => {
   //handling debouncing//
   // const [timeOut, setTimeOut] = useState(null);
@@ -31,11 +32,11 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
           </div>
         </Link>
 
-        <form className=" hidden relative md:min-w-72 md:block">
+        <form className=" w-[45%] relative md:min-w-72 md:block">
           <input
             type="text"
             placeholder="What do you want to watch?"
-            className="bg-transparent outline-none w-full h-full pr-12 pl-4 rounded-md border-2 border-[#D1D5DB] text-white"
+            className="bg-transparent outline-none w-full h-full pr-12 pl-4 md:text-base rounded-md border-2 border-[#D1D5DB] text-white placeholder-transparent md:placeholder:text-white md:placeholder:text-base"
             onChange={(e)=>handlerFn(e.target.value)}
             value={searchValue}
           />
@@ -47,7 +48,7 @@ const Nav = ({ dark, searchValue, handlerFn}) => {
         </form>
 
         <div className="flex items-center gap-4">
-          <button className="text-white font-bold text-sm">SignIn</button>
+          <button className="hidden md:block text-white font-bold text-sm">SignIn</button>
           <button>
             <img src={img} alt="logo" />
           </button>
