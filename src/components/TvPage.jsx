@@ -5,7 +5,7 @@ import axios from "axios";
 
 const TVPage = () =>{
     const [tvMovie, setTvMovie] = useState([])
-    console.log(tvMovie)
+    // console.log(tvMovie)
     const API_URL = import.meta.env.VITE_API_KEY;
 
     useEffect(() =>{

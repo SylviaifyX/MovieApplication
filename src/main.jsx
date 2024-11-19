@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import Upcoming from './pages/Upcoming';
 import Movie from './pages/Movie';
 import Tv from './pages/Tv';
+import SinglePerson from './pages/PersonId';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/tv",
     element:<Tv/>
+  },
+  {
+    path: "/person/:id",
+    element:<SinglePerson/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -2,8 +2,8 @@ import downArrow from "../assets/Arrow.png";
 import starIcon from "../assets/Star.png";
 import ticketIcon from "../assets/Tickets.png";
 import listIcon from "../assets/List.png";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const MediaInfo = () => {
@@ -25,14 +25,13 @@ const MediaInfo = () => {
     const fetchCastInfo = async () => {
       try {
         const res = await axios.get(
-          `https://api.themoviedb.org/3/${
-            mediaType === "upcoming" ? "movie" : mediaType
+          `https://api.themoviedb.org/3/${mediaType === "upcoming" ? "movie" : mediaType
           }/${id}/credits?api_key=${API_URL}`
         );
         const { crew, cast } = res.data;
         setCast(cast || []);
         setCrew(crew || []);
-        console.log(cast, crew);
+        // console.log(cast, crew);
       } catch (error) {
         console.log("error fetching data", error);
       }
@@ -45,15 +44,20 @@ const MediaInfo = () => {
       if (id) {
         try {
           const url =
-          mediaType === "movie"
-            ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
-            : mediaType === "upcoming"
-            ? `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_URL}`
-            : mediaType === "tv"
-            ? `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
-            : null;
+            mediaType === "movie"
+              ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
+              : mediaType === "upcoming"
+                ? `https://api.themoviedb.org/3/movie/${id}?api_key=${API_URL}`
+                : mediaType === "tv"
+                  ? `https://api.themoviedb.org/3/tv/${id}?api_key=${API_URL}`
+                  : null;
 
           const response = await axios.get(url);
+          console.log("this is", response.data)
+          // if(mediaType === "upcoming"){
+          //   console.log(response.data)
+          // }
+
           setMovieDetails(response.data);
           // console.log(response.data);
         } catch (error) {
@@ -63,6 +67,9 @@ const MediaInfo = () => {
     };
     fetchMovieInfo();
   }, [id, mediaType, API_URL]);
+  // useEffect(() =>{
+  //   console.log(cast)
+  // },[cast])
   return (
     <div className="grid py-4 lg:grid-cols-2 gap-x-6">
       <div className="font-Poppins">
@@ -73,10 +80,10 @@ const MediaInfo = () => {
           <p>
             {movieDetails.release_date || movieDetails.first_air_date
               ? new Date(
-                  mediaType === "movie"
-                    ? movieDetails.release_date
-                    : movieDetails.first_air_date
-                ).toUTCString()
+                mediaType === "movie" || mediaType === "upcoming"
+                  ? movieDetails.release_date
+                  : movieDetails.first_air_date
+              ).toUTCString()
               : "Release date not available"}
           </p>
           <p>
@@ -91,6 +98,15 @@ const MediaInfo = () => {
           <div className="flex gap-2 mt-3 mb-2 items-center">
             <p className="text-[#333]">Director:</p>
             <p className="text-[#BE123C]">
+              {/* {crew.map((person) => (
+                <Fragment key={person.id}>
+                  <Link to={`/person/${person.id}`} className="hover:underline">
+                    {person.name}
+                  </Link>
+                  {", "}
+                </Fragment>
+              ))} */}
+              
               {filterRole(crew, "director").join(" , ")}
             </p>
           </div>
@@ -100,10 +116,21 @@ const MediaInfo = () => {
               {filterRole(crew, "writer").join(" , ")}
             </p>
           </div>
-          <div className="flex gap-2 mt-3 items-center">
+          <div className="flex gap-2 mt-3 items-start">
             <p className="text-[#333]">Stars:</p>
+
             <p className="text-[#BE123C]">
-              {cast.map((person) => person.name).join(" , ") || ""}
+
+              {cast.map((person) => (
+                <Fragment key={person.id}>
+                  <Link to={`/person/${person.id}`} className="hover:underline">
+                    {person.name}
+                  </Link>
+                  {", "}
+                </Fragment>
+              ))}
+              {/* {cast.map((person)=> <Fragment key={person.id}><a href={}>{person.name}</a>, </Fragment>)} */}
+              {/* {cast.map((person) => person.name).join(" , ") || ""} */}
             </p>
           </div>
         </div>

@@ -14,7 +14,7 @@ const MovieCard = () => {
                     `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_URL}`
                 );
                 setMovie(response.data.results);
-                console.log(response.data.results)
+                // console.log(response.data.results)
             } catch (error) {
                 console.log("couldn't fetch upcoming movie", error);
             }
