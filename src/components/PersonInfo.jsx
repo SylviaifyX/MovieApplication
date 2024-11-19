@@ -73,7 +73,7 @@ const Person = () => {
                     </div>
                     <div className="bg-red-50 w-full lg:w-1/2 p-3 rounded-lg">
                         <span className="text-2xl font-Poppins">Place Of Birth</span>
-                        <h1 className="text-2xl mt-2"> <span>{getPerson.place_of_birth}</span></h1>
+                        <h1 className="text-2xl mt-2"> <span>{getPerson.place_of_birth || "place of birth not available"}</span></h1>
                     </div>
 
                 </div>
