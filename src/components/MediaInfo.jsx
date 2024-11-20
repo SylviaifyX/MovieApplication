@@ -96,8 +96,8 @@ const MediaInfo = () => {
         <p className="font-medium leading-7">{movieDetails.overview || "No overview available."}</p>
         <div className="pt-3 flex flex-col gap-2">
           <div className="flex gap-2 mt-3 mb-2 items-center">
-            <p className="text-[#333]">Director:</p>
-            <p className="text-[#BE123C]">
+            <p className="text-black">Director:</p>
+            <p className="text-[#333] font-Poppins font-semibold">
               {/* {crew.map((person) => (
                 <Fragment key={person.id}>
                   <Link to={`/person/${person.id}`} className="hover:underline">
@@ -112,21 +112,21 @@ const MediaInfo = () => {
           </div>
           <div className="flex gap-2 mt-3 items-center">
             <p className="text-[#333]">Writer:</p>
-            <p className="text-[#BE123C]">
+            <p className="text-[#333] font-semibold">
               {filterRole(crew, "writer").join(" , ")}
             </p>
           </div>
           <div className="flex gap-2 mt-3 items-start">
             <p className="text-[#333]">Stars:</p>
 
-            <p className="text-[#BE123C]">
+            <p className="text-[#BE123C] font-Poppins">
 
-              {cast.map((person) => (
+              {cast.map((person, index) => (
                 <Fragment key={person.id}>
                   <Link to={`/person/${person.id}`} className="hover:underline">
                     {person.name}
                   </Link>
-                  {", "}
+                  {index === cast.length - 1 ? "." : ", "}
                 </Fragment>
               ))}
               {/* {cast.map((person)=> <Fragment key={person.id}><a href={}>{person.name}</a>, </Fragment>)} */}

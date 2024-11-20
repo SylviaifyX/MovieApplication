@@ -47,10 +47,18 @@ const Person = () => {
                             className="w-full h-full object-cover  block"
                         />
                     </div>
-                    <div className="mt-4 w-full lg:w-1/2 text-center font-Poppins">
-                        <h1 className="text-black text-2xl font-bold">{getPerson.name}</h1>
+                    <div className="mt-4 w-full lg:w-1/2 text-justify font-Poppins">
+                        <h1 className="text-black text-2xl font-bold text-center">{getPerson.name}</h1>
                         <p className="text-black mt-2 leading-6">
-                            {getPerson.biography || "Biography not available."}
+                            {getPerson.biography ? (
+                                getPerson.biography.split("\n").map((paragraph, index) => (
+                                    <p key={index} className="text-black mt-2 leading-6">
+                                        {paragraph.trim()}
+                                    </p>
+                                ))
+                            ) : (
+                                <p className="text-black mt-2 leading-6">Biography not available.</p>
+                            )}
                         </p>
                     </div>
 
